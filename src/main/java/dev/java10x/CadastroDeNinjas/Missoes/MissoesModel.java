@@ -20,4 +20,14 @@ public class MissoesModel {
     @OneToMany(mappedBy = "missoes")
     private List<NinjaModel> ninjas;
 
+    //all args
+    public MissoesModel(String nome, Character rank, List<NinjaModel> ninjas) {
+        this.nome = nome;
+        this.rank = rank;
+        this.ninjas = ninjas;
+    }
+
+    //Noargs
+    public MissoesModel() {
+    }
 }
