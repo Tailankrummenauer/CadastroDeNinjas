@@ -1,12 +1,19 @@
 package dev.java10x.CadastroDeNinjas.Missoes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.java10x.CadastroDeNinjas.Ninjas.NinjaModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
 @Table(name = "tabela_missoes")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class MissoesModel {
 
     @Id
@@ -15,19 +22,9 @@ public class MissoesModel {
     private String nome;
     private Character rank;
 
-
     //Uma Missao pode ter muitos ninjas
+    @JsonIgnore
     @OneToMany(mappedBy = "missoes")
     private List<NinjaModel> ninjas;
 
-    //all args
-    public MissoesModel(String nome, Character rank, List<NinjaModel> ninjas) {
-        this.nome = nome;
-        this.rank = rank;
-        this.ninjas = ninjas;
-    }
-
-    //Noargs
-    public MissoesModel() {
-    }
 }
