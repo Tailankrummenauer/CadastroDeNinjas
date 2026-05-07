@@ -20,6 +20,7 @@ public class MissoesModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
+    @Column(nullable = false)
     private Character rank;
 
     //Uma Missao pode ter muitos ninjas

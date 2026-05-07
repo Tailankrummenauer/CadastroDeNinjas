@@ -14,11 +14,6 @@ public class NinjaController {
         this.ninjaService = ninjaService;
     }
 
-    @GetMapping("/boasvindas")
-    public String boasVindas(){
-        return "Essa é minha primeira mensagem nessa rota";
-    }
-
     //Adicionar ninja(Create)
     @PostMapping("/criar")
     public NinjaModel criarNinja(@RequestBody NinjaModel ninja){
@@ -43,8 +38,6 @@ public class NinjaController {
     public NinjaModel alterarNinjaNome(@PathVariable Long id, @RequestBody NinjaModel ninja){
         return ninjaService.atualizarNomeNinja(id, ninja);
     }
-
-
 
     //Deletar ninja(DELETE)
     @DeleteMapping("/deletarid/{id}")
